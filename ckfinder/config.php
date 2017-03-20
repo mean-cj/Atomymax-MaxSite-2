@@ -1,4 +1,8 @@
 <?php
+session_save_path( dirname(__FILE__) .'/../sessions/');
+session_start ();
+ob_start();
+
 /*
  * ### CKFinder : Configuration File - Basic Instructions
  *
@@ -23,7 +27,7 @@ ob_start();
 
 
 function CheckAuthentication()
-{ 
+{
   if (!$_SESSION["admin_user"] && !$_SESSION["login_true"]) {
     //return false;
 	return false;
