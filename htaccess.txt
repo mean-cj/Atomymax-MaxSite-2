@@ -7,13 +7,29 @@ php_value post_max_size 800M
 php_value uploaded_file_max_size 800M
 php_value allow_url_fopen on
 
-SecFilterEngine Off
-SecFilterScanPOST Off
-</IfModule>
-<IfModule mod_security2.c>
-SecRuleEngine Off
-SecRuleScanPOST Off
-</IfModule>
 
 
+AddDefaultCharset UTF-8
+php_value max_execution_time 1200
+php_value max_input_time 1200
+php_value memory_limit 2M
+php_value max_upload_size 50M
+php_value post_max_size 50M
+php_value uploaded_file_max_size 50M
+php_value allow_url_fopen on
+
+
+
+RedirectMatch 403 /(attach|backup|data|icon|UserFiles|video|webboard_upload|images)/.*.(php|html|htm|js|htaccess)$
+
+<Files *.php>
+    Order Deny,Allow
+    Deny from all
+    Allow from 127.0.0.1
+</Files>
+
+<Files  ~ "(index.php|val_img.php|install)">
+    Order Allow,Deny
+    Allow from all
+</Files>
 
