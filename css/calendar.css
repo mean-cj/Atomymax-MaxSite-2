@@ -1,0 +1,70 @@
+
+td.date_has_event {
+	background-position: 70px 0px;
+	color: white;
+}
+td.date_has_event:hover {
+	background-position: 105px -35px;
+}
+td.padding {
+	background: url(../images/calendar/calpad.jpg);
+	width: 35px;
+	height: 25px;
+	vertical-align: middle;
+	position: relative;
+}
+td.today {
+	background-position: 35px 0px;
+	color: white;
+	width: 35px;
+	height: 25px;
+	vertical-align: middle;
+	position: relative;
+}
+td.calendarToday:hover {
+	background-position: 70px -70px;
+}
+td.calendarcenter { 
+    font-weight: bolder; 
+    color: #FFFFFF; 
+	background: url(../images/calendar/cells.png) repeat-x;
+	background-position: 105px -35px;
+	height: 25px;
+	vertical-align: middle;
+	position: relative;
+}
+td.calendarHeader { 
+    font-weight: bolder; 
+    color: #FFFFFF; 
+	background: url(../images/calendar/calpad1.jpg) repeat-x;
+	height: 25px;
+	vertical-align: middle;
+	position: relative;
+}
+td.calendarToday { 
+	background: url(../images/calendar/cells.png);
+	background-position: 70px -0px;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	color: #ffffff;
+	width: 35px;
+	height: 25px;
+}
+td.calendarTodayx { 
+	background: url(../images/calendar/cellsx.png);
+	background-position: 70px -0px;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	color: #ffffff;
+	width: 35px;
+	height: 25px;
+}
+.calendar { 
+    width:245;
+	background: url(../images/calendar/body.png) repeat-x;
+	font-size: 10px;
+	font-weight: bold;
+	position: relative;
+}

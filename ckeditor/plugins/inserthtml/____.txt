@@ -1,0 +1,40 @@
+﻿/**************************************************************************************************************
+inserthtml plugin for CKEditor 3.x
+
+ --Insert Html Code
+
+插件描述： CKEditor 3.0 插入HTML代码 插件
+
+Author: Lajox 
+Email: lajox@19www.com 
+HomePage: www.19www.com
+Blog: blog.19www.com
+Demo: www.newzz.fr.cr
+
+***************************************************************************************************************/
+
+
+/**************使用说明 Begin***************/
+
+1. 上传 lrcshow 整个文件夹到 ckeditor/plugins/ 下 
+
+2. 在 ckeditor/config.js 中配置:
+    找到 config.toolbar 设置部分，
+     在相应位置添加工具按钮值  'inserthtml'
+如：
+
+config.toolbar = 
+[
+    [ 'Source', '-', 'Bold', 'Italic', 'lrcshow' ]
+];
+
+
+3. 继续修改： ckeditor/config.js
+   引入拓展插件代码如：
+
+config.extraPlugins="myplugin1,myplugin2,inserthtml";
+
+
+/**************使用说明 End***************/
+
+

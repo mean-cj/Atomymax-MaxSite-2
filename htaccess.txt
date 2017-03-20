@@ -1,0 +1,19 @@
+AddDefaultCharset UTF-8
+php_value max_execution_time 18000
+php_value max_input_time 18000
+php_value memory_limit 912M
+php_value max_upload_size 800M
+php_value post_max_size 800M
+php_value uploaded_file_max_size 800M
+php_value allow_url_fopen on
+
+SecFilterEngine Off
+SecFilterScanPOST Off
+</IfModule>
+<IfModule mod_security2.c>
+SecRuleEngine Off
+SecRuleScanPOST Off
+</IfModule>
+
+
+

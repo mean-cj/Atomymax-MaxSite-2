@@ -1,0 +1,46 @@
+.autocomplete_list * {
+	font-family: "myriad pro", "segoe ui", "trebuchet ms", sans-serif;
+	font-size: 13px;
+}
+
+.autocomplete_list b {
+	font-weight: bold;
+}
+
+.autocomplete_list { 
+	background: #f2f2f2; display: block;
+	border: 1px solid gray;
+	text-align: left; z-index: 200; 
+}
+
+.autocomplete_list, .autocomplete_list ol, .autocomplete_list li { 
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0; 
+}
+
+.autocomplete_list li { 
+	margin: 0; 
+	text-align: left;
+	cursor: pointer; 
+	padding: 4px;
+	border-bottom: 1px solid silver;	
+}
+
+.autocomplete_list .last_item { 
+	border: none;	
+}
+
+.autocomplete_list .current_item { 
+	background: #b4d5fe; color: #000; 
+}
+
+.autocomplete_list span { 
+	color: #111; float: right; padding-left: 2em; 
+}
+
+.autocomplete_icon { 
+	background-image: url(../images/autocomplete.gif);	
+	cursor: pointer;
+	cursor: hand;	
+}

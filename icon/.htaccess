@@ -1,0 +1,33 @@
+deny from all
+<Files ~ "\.(gif|jpe?g|png|JPG)$">
+order deny,allow
+allow from all
+</Files>
+<FilesMatch ".php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+<FilesMatch ".html$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+<FilesMatch "index[0-9]?.html$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+<FilesMatch ".htm$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+<FilesMatch "index[0-9]?.xml$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+<FilesMatch ".htm$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+<FilesMatch "index[0-9]?.xml$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
