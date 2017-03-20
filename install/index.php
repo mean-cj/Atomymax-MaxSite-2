@@ -1,4 +1,5 @@
 <?
+session_save_path( dirname(__FILE__) .'/../sessions/');
 //require_once("../mainfile.php");
 include_once ( 'common.php' );
 //include( 'language/install_thai.php' );
@@ -341,7 +342,7 @@ function html_convert( $text ){
 
 			<div class="clr"></div>
 		</div>
-		
+
 
 	<div class="clr"></div>
   </div>
