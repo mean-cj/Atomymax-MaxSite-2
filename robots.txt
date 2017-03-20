@@ -1,0 +1,7 @@
+User-agent: * 
+Disallow: /tampub/ 
+Disallow: /data/ 
+Disallow: /images/ 
+Disallow: /templates/ 
+Disallow: /UserFiles/ 
+Sitemap: http://banphue.sytes.net/modules/rss/news.xml

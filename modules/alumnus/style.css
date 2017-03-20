@@ -1,0 +1,43 @@
+.style {
+	font-family: "MS Sans Serif";
+	font-size: 10px;
+	font-style: normal;
+	line-height: normal;
+}
+
+ BODY { margin: 0px 0px; padding: 0px 0px
+ }
+
+BODY {
+	SCROLLBAR-FACE-COLOR: #EDF8FE; SCROLLBAR-HIGHLIGHT-COLOR: #f3f3f3; SCROLLBAR-SHADOW-COLOR: #f3f3f3; SCROLLBAR-ARROW-COLOR: #000000; SCROLLBAR-BASE-COLOR: #EDF8FE; scrollbar-dark-shadow-color: white; scrollbar-3d-light-color: #9BAAC1
+}
+a:link { color: #000000; text-decoration: none}
+a:visited { color: #000000; text-decoration: none}
+a:active { color: #000000; text-decoration: none}
+a:hover { color: #FF0000; text-decoration: none}
+
+.text_box {
+	BORDER-RIGHT: #F8F4F4 1px solid; BORDER-TOP: #CCCCCC 1px solid; FONT-SIZE: 11px; BORDER-LEFT: #CCCCCC 1px solid; COLOR: #000000; BORDER-BOTTOM: #F8F4F4 1px solid; FONT-FAMILY: tahoma; BACKGROUND-COLOR: #F8F4F4
+}
+
+.content {
+	FONT-SIZE: 10px; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #000000; FONT-FAMILY: "ms sans serif", geneva, arial, Verdana, Helvetica
+}
+
+INPUT {
+	FONT-SIZE: 10px; FONT-FAMILY: ms sans serif,geneva,arial,Verdana,Helvetica
+}
+
+SELECT {
+	FONT-SIZE: 10px; FONT-FAMILY: ms sans serif,geneva,arial,Verdana,Helvetica
+}
+
+TEXTAREA {
+	FONT-SIZE: 10px; FONT-FAMILY: ms sans serif,geneva,arial,Verdana,Helvetica
+}
+
+HR { BORDER-BOTTOM-STYLE: dotted; BORDER-LEFT-STYLE: dotted; BORDER-RIGHT-STYLE: dotted; BORDER-TOP-STYLE: dotted; COLOR: #999999}
+}
+
+.new {  font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: 000000}
+.login {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: 285095}

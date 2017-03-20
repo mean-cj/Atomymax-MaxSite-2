@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Configuration panel -->
+<banner width = "" height = ""
+		startWith = "1" 
+		random = "false"
+
+		backgroundColor = "0xffffff" 
+		backgroundTransparency = "100"
+		
+		cellWidth = "50"
+		cellHeight = "50"
+		
+		showMinTime = "0.2"
+		showMaxTime = "1.5"
+		
+		blur = "50"
+		netTime = "0.5"
+		alphaNet = "80"
+		netColor = "0x000000"
+		
+		overColor = "0x473C31"
+		normalColor = "0x000000"
+		selectedTextColor = "0xffffff"
+		
+		selectedButtonAlpha = "70"
+		
+		controllerVisible = "true"
+		controllerBackgroundVisible = "true"
+		
+		prevNextVisible = "true"
+		playBtVisible = "true"
+		autoPlay = "true"
+		navigationButtonsColor = "0x1a1a1a"
+		
+		controllerDistanceX = "4"
+		controllerDistanceY = "4"
+		
+		controllerHeight = "20"
+		distanceBetweenControllerElements = "10"
+		distanceBetweenThumbs = "3"
+		
+		itemNumberSize = "14"
+		
+		captionY = "2"
+		captionX = "2"			
+		
+		captionWidth = "524"
+
+
+		
+		loaderColor = "0x000000">
+<!-- End panel -->
+
+
+	<item>
+		<path>../../icon/ran_rotator1.jpg</path>
+		<title><![CDATA[<font color="#990000">ทำบุญเนื่องในโอกาสวันอาสาฬหบูชาและเข้าพรรษา</font>]]></title>
+		<caption><![CDATA[<font color="#000033">ครู นักเรียนได้ร่วมกันถวายเทียนพรรษา ถวายสังฑทาน บำเพ็ญประโยชน์โดยการทำความสะอาดวัดบ้านผือ เนื่องในโอกาสวันอาสาฬหบูชาและวันเข้าพรรษา ในวันที่ 14 กรกฎาคม 2554<br /></font>]]></caption>
+		
+		<target>_blank</target>
+		<link>http://localhost/atomymaxsite2.5/?name=news&file=readnews&id=5</link>
+		
+		<bar_color>0xffffff</bar_color>
+		<bar_transparency>40</bar_transparency>
+		
+		<caption_color>0xffffff</caption_color>
+		<caption_transparency>60</caption_transparency>
+		
+		<stroke_color>0xffffff</stroke_color>
+		<stroke_transparency>40</stroke_transparency>
+		
+		<slideshowTime>10</slideshowTime>
+	</item>
+
+</banner>

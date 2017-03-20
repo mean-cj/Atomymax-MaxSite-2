@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<smiletag_message>
+    <row>
+        <name><![CDATA[admin]]></name>
+        <url><![CDATA[admin]]></url>
+        <message><![CDATA[<img src="images/smilies/tongue.gif" border="0" alt=":p"/>]]></message>
+        <datetime>1349925525</datetime>
+        <ipaddress>49.48.153.106</ipaddress>
+    </row>
+    <row>
+        <name>ad</name>
+        <url>ad</url>
+        <message>ทดสอบ</message>
+        <datetime>1349924636</datetime>
+        <ipaddress>49.48.153.106</ipaddress>
+    </row>
+    <row>
+        <name>admin</name>
+        <url>admin</url>
+        <message>ทดสอบ</message>
+        <datetime>1338393746</datetime>
+        <ipaddress>127.0.0.1</ipaddress>
+    </row>
+    <row>
+        <name>ad</name>
+        <url>ad</url>
+        <message>ฟก</message>
+        <datetime>1338393532</datetime>
+        <ipaddress>127.0.0.1</ipaddress>
+    </row>
+    <row />
+</smiletag_message>

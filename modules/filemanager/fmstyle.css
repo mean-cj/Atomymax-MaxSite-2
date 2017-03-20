@@ -1,0 +1,38 @@
+A			{ color: #990000; }
+A:link		{ FONT-SIZE: 8pt; COLOR: #990000; FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica; TEXT-DECORATION: none; }
+A:visited	{ FONT-SIZE: 8pt; COLOR: #990000; FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica; TEXT-DECORATION: none; }
+A:hover		{ FONT-SIZE: 8pt; COLOR: black; FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica; TEXT-DECORATION: underline; }
+A:active	{ FONT-SIZE: 8pt; COLOR: #990000; FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica; TEXT-DECORATION: none; }
+
+a.sidelink:hover	{ font-family: Arial, Helvetica, sans-serif; font-size: 10pt; color: white; TEXT-DECORATION: underline;}
+a.sidelink:visited	{ font-family: Arial, Helvetica, sans-serif; font-size: 10pt; color: white; }
+a.sidelink:link		{ font-family: Arial, Helvetica, sans-serif; font-size: 10pt; color: white; }
+
+a.normal:hover		{ font-family: Arial, Helvetica, sans-serif; font-size: 11pt; color: #990000; TEXT-DECORATION: underline;}
+a.normal:visited	{ font-family: Arial, Helvetica, sans-serif; font-size: 11pt; color: #990000; }
+a.normal:link		{ font-family: Arial, Helvetica, sans-serif; font-size: 11pt; color: #990000; }
+
+
+.altButton {
+
+	font-family: verdana;
+	font-size: 10px;
+	color: #000000;
+} 
+.normalred {
+FONT-SIZE: 11pt; 
+COLOR: #990000; 
+FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica; 
+TEXT-DECORATION: none; 
+}
+.normalblack {
+FONT-SIZE: 11pt; 
+COLOR: #000000; 
+FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica; 
+TEXT-DECORATION: none; 
+}
+.smallblack {
+FONT-SIZE: 7pt; 
+COLOR: #000000; 
+FONT-FAMILY: Tahoma, Verdana, Arial, Helvetica; 
+}

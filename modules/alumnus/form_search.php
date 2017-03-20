@@ -1,0 +1,65 @@
+<table width="750" border="0" align="center" cellpadding="5" cellspacing="0" >
+<tr >
+<td width="750" valign="top">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="grids">
+<tr class="odd">
+<td >
+		<FORM action="index.php?name=alumnus&file=search" method="post" name="form_search" id="form_search">
+ 1. <?=_ALUM_MOD_SEARCH_TITLE;?>
+<SELECT name=list_pro size=1 id="list_pro" >
+<option value="0" selected><?=_ALUM_MOD_SEARCH_LISTPRO;?></option>
+<option value="msn">MSN</option>
+<option value="icq">ICQ</option>
+<option value="yahoo">YAHOO</option>
+<option value="qq">QQ</option>
+</SELECT>
+<SELECT name=sex size=1 >
+<option value="0" selected><?=_ALUM_MOD_FORM_SEX;?></option>
+<OPTION value="1"><?=_ALUM_MOD_FORM_SEX_MAN;?></OPTION>
+<OPTION value="2"><?=_ALUM_MOD_FORM_SEX_GIRL;?></OPTION>
+<OPTION value="3"><?=_ALUM_MOD_FORM_SEX_BI;?></OPTION>
+</SELECT>
+<SELECT size=1 name=age>
+<OPTION value="0" 
+ selected><?=_ALUM_MOD_FORM_OLD;?></OPTION>
+<OPTION value="a1"><?=_ALUM_MOD_SEARCH_OLD_DOWN;?> 18</OPTION>
+<OPTION value="a2">18 - 20</OPTION>
+<OPTION value="a3">21 - 30</OPTION>
+<OPTION value="a4">31 - 40</OPTION>
+<OPTION value="a5">41 <?=_ALUM_MOD_SEARCH_OLD_UP;?></OPTION>
+</SELECT>
+<?
+$vprovince  = array(_PROVINCE_1, _PROVINCE_2, _PROVINCE_3, _PROVINCE_4, _PROVINCE_5, _PROVINCE_6, _PROVINCE_7, _PROVINCE_8, _PROVINCE_9, _PROVINCE_10, _PROVINCE_11, _PROVINCE_12, _PROVINCE_13, _PROVINCE_14, _PROVINCE_15, _PROVINCE_16, _PROVINCE_17, _PROVINCE_18, _PROVINCE_19, _PROVINCE_20, _PROVINCE_21, _PROVINCE_22, _PROVINCE_23, _PROVINCE_24, _PROVINCE_25, _PROVINCE_26, _PROVINCE_27, _PROVINCE_28, _PROVINCE_29, _PROVINCE_30, _PROVINCE_31, _PROVINCE_32, _PROVINCE_33, _PROVINCE_34, _PROVINCE_35, _PROVINCE_36, _PROVINCE_37, _PROVINCE_38, _PROVINCE_39, _PROVINCE_40, _PROVINCE_41, _PROVINCE_42, _PROVINCE_43, _PROVINCE_44, _PROVINCE_45, _PROVINCE_46, _PROVINCE_47, _PROVINCE_48, _PROVINCE_49, _PROVINCE_50, _PROVINCE_51, _PROVINCE_52, _PROVINCE_53, _PROVINCE_54, _PROVINCE_55, _PROVINCE_56, _PROVINCE_57, _PROVINCE_58, _PROVINCE_59, _PROVINCE_60, _PROVINCE_61, _PROVINCE_62, _PROVINCE_63, _PROVINCE_64, _PROVINCE_65, _PROVINCE_66, _PROVINCE_67, _PROVINCE_68, _PROVINCE_69, _PROVINCE_70, _PROVINCE_71, _PROVINCE_72, _PROVINCE_73, _PROVINCE_74, _PROVINCE_75, _PROVINCE_76, _PROVINCE_77);
+echo "<select  name=province size=1 >
+		<option >"._ALUM_MOD_FORM_PROV."</option>";
+for($i=0;$i<count($vprovince);$i++){
+echo 	"<option value=$vprovince[$i]>".$vprovince[$i]."</option>";
+}
+echo "</select>";
+?>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input name="cam" type="checkbox" id="cam" value="1">
+<img src="modules/alumnus/img/webcam.gif" width="23" height="18" align="absmiddle">
+<input name="mic" type="checkbox" id="mic" value="1">
+<img src="modules/alumnus/img/mic.gif" width="18" height="20" align="absmiddle">
+<input name="pic" type="checkbox" id="pic" value="1">
+<img src="modules/alumnus/img/pic.gif" width="15" height="12" align="absmiddle">
+</td>
+</tr>
+<tr class="odd">
+<td >
+2. <select name="Search2">
+     <option value="first_name" <? if($Search2=="first_name"){ ?>selected<? }?>><?=_ALUM_MOD_FORM_NAME;?></option>
+     <option value="last_name" <? if($Search2=="last_name"){ ?>selected<? }?>><?=_ALUM_MOD_FORM_SUR;?></option>
+     <option value="nic_name" <? if($Search2=="nic_name"){ ?>selected<? }?>><?=_ALUM_MOD_FORM_NICK;?></option>
+</select>
+<input name="Search" type="text" size="30" value="<? echo $Search?>">&nbsp;&nbsp;
+<INPUT class=blue type=submit value=Search name=submit>
+</FORM>
+</td>
+</tr>
+</table>
+</td>
+
+</tr>
+</table>
