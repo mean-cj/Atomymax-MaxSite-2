@@ -1,5 +1,6 @@
-<?php 
+<?php
 //session_save_path('/var/www/vhosts/buraphank.com/httpdocs/sessions');
+session_save_path( dirname(__FILE__). '/sessions/');
 ob_start();
 if (session_id() =='') { session_start(); }
 //session_start();
@@ -44,7 +45,7 @@ if (!empty($admin_user)){
 if(empty($_SESSION['ua']) || $_SESSION['ua'] != $admin_user.":".$_SERVER['HTTP_USER_AGENT'].":".$IPADDRESS.":".$_SERVER['HTTP_ACCEPT_LANGUAGE'])
 {
 $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
-$db->del(TB_useronline," useronline='".$_SESSION['admin_user']."' "); 
+$db->del(TB_useronline," useronline='".$_SESSION['admin_user']."' ");
 $db->add_db(TB_IPBLOCK,array(
 	"ip"=>"".$IPADDRESS."",
 	"post_date"=>"".time().""
@@ -56,12 +57,12 @@ session_regenerate_id(); // เริ่ม session อื่นใหม
 die('Session Hijacking Attempt');
 }
 
-} 
+}
 if(!empty($login_true)){
 if(empty($_SESSION['uax']) || $_SESSION['uax'] != $login_true.":".$_SERVER['HTTP_USER_AGENT'].":".$IPADDRESS.":".$_SERVER['HTTP_ACCEPT_LANGUAGE'])
 {
 $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
-$db->del(TB_useronline," useronline='".$_SESSION['login_true']."' "); 
+$db->del(TB_useronline," useronline='".$_SESSION['login_true']."' ");
 $db->add_db(TB_IPBLOCK,array(
 	"ip"=>"".$IPADDRESS."",
 	"post_date"=>"".time().""
@@ -104,7 +105,7 @@ $PermissionFalse .= "<BR><BR>";
 $home = "".WEB_URL."" ; // url เว็บไซด์ของคุณ เวลาที่ต้องการเรียก
 $admin_email = "".WEB_EMAIL."" ; // อีเมล์ของคุณ
 $yourcode = "web" ; // รหัสนำหน้าหมายเลขสมาชิกของคุณ เช่น ip00001 , abc00005
-$member_num_show = 5 ;  // จำนวนของสมาชิกที่ต้องการให้แสดงต่อ  1 หน้า ในระบบของ admin 
+$member_num_show = 5 ;  // จำนวนของสมาชิกที่ต้องการให้แสดงต่อ  1 หน้า ในระบบของ admin
 $member_num_show_last = 5 ;  // จำนวนของสมาชิกล่าสุดที่ต้องการให้แสดง
 $member_num_last = 1 ;  // จำนวนของสมาชิกล่าสุดที่ต้องการให้แสดงหน้าแรก
 
@@ -126,7 +127,7 @@ if ($IPBLOCK){
 <A HREF="?name=index"><B><?php echo _ADMIN_IPBLOCK_MESSAGE_HACK1;?></B></A>
 </CENTER>
 <BR><BR>
-<?php 
+<?php
 exit();
 } else {
 $timestamp=time();
@@ -136,16 +137,16 @@ $res['user3'] = $db->select_query("SELECT * FROM ".TB_useronline." where timeout
 //if($rows['user3']['useronline']){
 while ($rows['user3'] = $db->fetch($res['user3'])){
 if ($login_true==$rows['user3']['useronline']){
-//$db->del(TB_useronline,"  timeout < $timestamp  "); 
-$db->del(TB_useronline,"  timeout < $timestamp and useronline='".$login_true."' "); 
+//$db->del(TB_useronline,"  timeout < $timestamp  ");
+$db->del(TB_useronline,"  timeout < $timestamp and useronline='".$login_true."' ");
 session_unset($rows['user3']['useronline']);
 setcookie($rows['user3']['useronline'],'');
 } else if ($admin_user==$rows['user3']['useronline']){
-$db->del(TB_useronline,"  timeout < $timestamp and useronline='".$admin_user."' "); 
+$db->del(TB_useronline,"  timeout < $timestamp and useronline='".$admin_user."' ");
 session_unset($rows['user3']['useronline']);
 setcookie($rows['user3']['useronline'],'');
 } else {
-$db->del(TB_useronline,"  timeout < $timestamp  "); 
+$db->del(TB_useronline,"  timeout < $timestamp  ");
 session_unset($rows['user3']['useronline']);
 setcookie($rows['user3']['useronline'],'');
 }

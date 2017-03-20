@@ -1,4 +1,5 @@
 <?php
+session_save_path( dirname(__FILE__). '/../sessions/');
 /**
 * @version $Id: common.php,v 1.5 2005/01/23 03:24:16 kochp Exp $
 * @package Mambo
@@ -15,8 +16,8 @@
 /**
 * Utility function to return a value from a named array or a specified default
 */
-define("_SCRIPT","ATOMYMAXSITE"); 
-define("_VERSION","2.5"); 
+define("_SCRIPT","ATOMYMAXSITE");
+define("_VERSION","2.5");
 function mosGetParam( &$arr, $name, $def=null, $mask=0 ) {
 	$return = null;
 	if (isset( $arr[$name] )) {

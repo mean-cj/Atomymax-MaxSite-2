@@ -1,4 +1,5 @@
 <?
+session_save_path( dirname(__FILE__) .'/../sessions/');
 /*
 ผู้พัฒนา maxsite 1.10: นายอัษฎา อินต๊ะ
 โทรศัพท์ : 081-595-3392
@@ -11,7 +12,7 @@ http://maxsite.geniuscyber.com
 Email : vt9vm@hotmail.com
 http://banphue.sytes.net
 
-ตัวคอนฟิกในการควบคุมระบบเว็บไซต์ 
+ตัวคอนฟิกในการควบคุมระบบเว็บไซต์
 */
 $globals_test = @ini_get('register_globals');
 if ( isset($globals_test) && empty($globals_test) ) {
@@ -30,14 +31,14 @@ if (preg_match("/config.in.php/i",$_SERVER['PHP_SELF'])) {
 }
 
 //MAXSITE Version
-define("_SCRIPT","ATOMYMAXSITE"); 
-define("_VERSION","2.5"); 
+define("_SCRIPT","ATOMYMAXSITE");
+define("_VERSION","2.5");
 
 //Web Config
 
 define("TIMESTAMP",time()) ;
-define("WEB_TIMESTART","%WEB_TIMESTART%") ;  
-//define("WEB_TEMPLATES","atomy") ; 
+define("WEB_TIMESTART","%WEB_TIMESTART%") ;
+//define("WEB_TEMPLATES","atomy") ;
 //Capcha ตัวหนังสือยืนยันการโพสข้อความ
 define("USE_CAPCHA", %USE_CAPCHA%); //ใช้การป้องกันการโพสสแปม   true , false
 define("CAPCHA_TYPE","%CAPCHA_TYPE%"); //รูปแบบของตัวอักษร 1 = แบบสวยงาม , 2 = แบบธรรมดา
@@ -47,7 +48,7 @@ define("CAPCHA_HEIGHT","25"); //ขนาดความสูง
 
 /*
 CAPCHA_TYPE แบบที่ 1 ต้องเซ็ทค่าดังนี้
- กรณีที่ตัวอักษรไม่ขึ้นให้เข้าไปแก้ที่ไฟล์ capcha/CaptchaSecurityImages.php บรรทัดที่ 6 ให้ใส่ path ให้ถูกต้อง หากต้องการทราบ path ให้เปิดไฟล์ phpinfo.php เพื่อตรวจสอบ path ของเว็บไซต์ 
+ กรณีที่ตัวอักษรไม่ขึ้นให้เข้าไปแก้ที่ไฟล์ capcha/CaptchaSecurityImages.php บรรทัดที่ 6 ให้ใส่ path ให้ถูกต้อง หากต้องการทราบ path ให้เปิดไฟล์ phpinfo.php เพื่อตรวจสอบ path ของเว็บไซต์
 */
 
 //Calendar
@@ -84,26 +85,26 @@ define("_EDITORTALK","Editor Talk");
 define("_INEWS_W","200"); //ไอคอนข่าวสารกว้าง
 define("_INEWS_H","150"); //ไอคอนข่าวสารสูง
 define("_IKNOW_W","200"); //ไอคอนความรู้กว้าง
-define("_IKNOW_H","150"); //ไอคอนความรู้สูง 
+define("_IKNOW_H","150"); //ไอคอนความรู้สูง
 define("_Iuser_W","80");//ไอคอนความรู้สูง     // ใช้กับระบบสมาชิก สำหรับ MAXSITE @V.3
 define("_Iuser_H","80"); //ไอคอนความรู้สูง     // ใช้กับระบบสมาชิก สำหรับ MAXSITE @V.3
 define("_Iadmin_W","80"); //ไอคอนข่าวสารกว้าง
 define("_Iadmin_H","100"); //ไอคอนข่าวสารสูง
 //Show Topic
 define("_NEWS_COL","2"); //จำนวนคอลัมน์ในการแสดงข่าวสาร
-define("_KNOW_COL","2"); //จำนวนคอลัมน์ในการแสดงสาระความรู้ 
+define("_KNOW_COL","2"); //จำนวนคอลัมน์ในการแสดงสาระความรู้
 
 //Webboard control
 define("_NUM_ID","5"); //การแสดงหัวข้อโดยแสดงจำนวนกี่หลัก เช่น ตั้งค่าเป็น 5 ก็จะแสดง 00001 , 00015 เป็นต้น
 define("_SHOW_BOARD_PIN","5"); //การจำนวนกระทู้ปักหมุด
 define("_PERPAGE_BOARD","20"); //จำนวนกระทู้ที่แสดงหน้าบอร์ดแต่ละหมวด
 define("_ENABLE_BOARD_UPLOAD",true); //ให้มีการอัพโหลดรูปได้  true , false
-define("_WEBBOARD_LIMIT_UPLOAD","102400"); //ขนาดไฟล์รูปที่อัพโหลดได้ 
+define("_WEBBOARD_LIMIT_UPLOAD","102400"); //ขนาดไฟล์รูปที่อัพโหลดได้
 define("_WEBBOARD_LIMIT_UPLOADS","1024000"); //ขนาดไฟล์ที่แนบ
-define("_WEBBOARD_LIMIT_PICWIDTH","600"); //ขนาดไฟล์รูปที่อัพโหลดได้ 
+define("_WEBBOARD_LIMIT_PICWIDTH","600"); //ขนาดไฟล์รูปที่อัพโหลดได้
 define("_MEMBER_LIMIT_PICWIDTH","100");
 define("_MEMBER_LIMIT_UPLOAD","102400"); //ขนาดไฟล์รูป member
-define("_MEMBER_COL","2"); 
+define("_MEMBER_COL","2");
 
 //useronline
 define("TB_useronline","web_useronline");
@@ -128,7 +129,7 @@ define("_Iresearch_W","100"); //ไอคอนข่าวสารกว้าง
 define("_Iresearch_H","120"); //ไอคอนข่าวสารสูง
 define("TB_RESEARCH_COMMENT","web_research_comment");
 define("TB_RESEARCH_CAT","web_research_category");
-define("_RESEARCH_COL","2"); 
+define("_RESEARCH_COL","2");
 
 //GALLERY
 define("TB_GALLERY","web_gallery");
@@ -138,9 +139,9 @@ define("_IGALLERY_W","600"); //ไอคอนข่าวสารกว้าง
 define("_IGALLERY_H","500"); //ไอคอนข่าวสารสูง
 define("_IGALLERYT_W","200"); //ไอคอนข่าวสารกว้าง thb
 define("_IGALLERYT_H","150"); //ไอคอนข่าวสารสูง thb
-define("_GALLERY_COL","3"); 
+define("_GALLERY_COL","3");
 define("_GALLERYCAT_COL","2");
-define("_GALLERY_ADMIN_COL","4"); 
+define("_GALLERY_ADMIN_COL","4");
 define("_GALLERYCAT_ADMIN_COL","2");
 define("_GALLERY_LIMIT_UPLOAD","512000"); //ขนาดไฟล์รูป member
 
@@ -152,7 +153,7 @@ define("_Idownload_H","80"); //ไอคอนข่าวสารสูง
 define("_DOWNLOAD","download");
 define("TB_DOWNLOAD_COMMENT","web_download_comment");
 define("TB_DOWNLOAD_CAT","web_download_category");
-define("_DOWNLOAD_COL","2"); 
+define("_DOWNLOAD_COL","2");
 
 //webconfig
 define("TB_CONFIG","web_config");
@@ -166,7 +167,7 @@ define("TB_VOTE","web_vote");
 define("TB_ALUMNUS","web_alumnus");
 define("_ALUMNUS_LIMIT_PICWIDTH","100"); //ความกว้างไฟล์รูปศิษย์เก่า
 define("_ALUMNUS_LIMIT_UPLOAD","51200"); //ขนาดไฟล์รูปศิษย์เก่า
-define("_ALUMNUS_COL","2"); 
+define("_ALUMNUS_COL","2");
 
 // workboard
 define("TB_WORKBOARD_MEMBERS","web_workboard_members");
@@ -184,8 +185,8 @@ define("TB_BLOG_CAT","web_blog_category");
 define("TB_BLOG_LEVEL","web_blog_level");
 define("_BLOG","blog");
 define("_BLOG_COL","2");
-define("_Iblog_W","200");//ความกว้างรูปนักเรียน     
-define("_Iblog_H","150"); //ความสูงรูปนักเรียน   
+define("_Iblog_W","200");//ความกว้างรูปนักเรียน
+define("_Iblog_H","150"); //ความสูงรูปนักเรียน
 
 // poll
 define("TB_POLL","web_polls");
@@ -196,8 +197,8 @@ define("TB_IPBLOCK","web_ipblock");
 define("TB_TEMPLATES","web_templates");
 // images random
 define("TB_RANDOM","web_random");
-define("_IRAN_W","520");//ความกว้างรูป     
-define("_IRAN_H","250"); //ความสูงรูป 
+define("_IRAN_W","520");//ความกว้างรูป
+define("_IRAN_H","250"); //ความสูงรูป
 
 // menu
 define("TB_MENU","web_menu");
@@ -210,14 +211,14 @@ define("TB_VIDEO_COMMENT","web_video_comment");
 define("TB_VIDEO_CAT","web_video_category");
 define("_IVIDEOT_W","200"); //ไอคอนข่าวสารกว้าง thb
 define("_IVIDEOT_H","150"); //ไอคอนข่าวสารสูง thb
-define("_VIDEO_COL","2"); 
+define("_VIDEO_COL","2");
 define("_VIDEOIN_COL","3");
 define("_VIDEOCAT_COL","2");
-define("_VIDEO_ADMIN_COL","4"); 
+define("_VIDEO_ADMIN_COL","4");
 define("_VIDEOCAT_ADMIN_COL","2");
 define("_VIDEO_LIMIT_UPLOAD","104857600");
 //define("_VIDEO_FFMPEG","/usr/local/bin");
-//define("_VIDEO_FLVTOOL2","/usr/local/bin"); 
+//define("_VIDEO_FLVTOOL2","/usr/local/bin");
 
 
 
