@@ -33,7 +33,7 @@
 			$textData = implode($buffer);
 			if(!empty($textData)){
 				
-				$xmlDoc =& new DOMIT_Lite_Document();
+				$xmlDoc = new DOMIT_Lite_Document();
 				$xmlDoc->parseXML($textData,false);
 				$rootElement =& $xmlDoc->documentElement;
 										
@@ -69,7 +69,7 @@
 			
 			$textData = '<?xml version="1.0"?>'."\n".'<smiletag_config>'."\n".'</smiletag_config>';
 						
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 												
 			$rootElement =& $xmlDoc->documentElement;
@@ -116,7 +116,7 @@
 			
 			if(!empty($textData)){
 				
-				$xmlDoc =& new DOMIT_Lite_Document();
+				$xmlDoc = new DOMIT_Lite_Document();
 				$xmlDoc->parseXML($textData,false);
 				$rootElement =& $xmlDoc->documentElement;
 				
@@ -177,7 +177,7 @@
 			
 			if(!empty($textData)){
 				
-				$xmlDoc =& new DOMIT_Lite_Document();
+				$xmlDoc = new DOMIT_Lite_Document();
 				$xmlDoc->parseXML($textData,false);
 				
 				//gets the replacement words
@@ -235,7 +235,7 @@
 				$textData = '<?xml version="1.0"?>'."\n".'<smiletag_message>'."\n".'</smiletag_message>';
 			};
 			
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 												
 			$rootElement =& $xmlDoc->documentElement;
@@ -301,7 +301,7 @@
 			$textData = '<?xml version="1.0"?>'."\n".'<smiletag_message>'."\n".'</smiletag_message>';
 			
 			
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 												
 			$rootElement =& $xmlDoc->documentElement;
@@ -365,7 +365,7 @@
 			$textData = '<?xml version="1.0"?>'."\n".'<smiletag_message>'."\n".'</smiletag_message>';
 			
 			
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 												
 			$rootElement =& $xmlDoc->documentElement;
@@ -447,7 +447,7 @@
 				$textData = '<?xml version="1.0"?>'."\n".'<ban_list>'."\n".'</ban_list>';
 			};
 			
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 			
 			$rootElement =& $xmlDoc->documentElement;
@@ -495,7 +495,7 @@
 				$textData = '<?xml version="1.0"?>'."\n".'<ban_list>'."\n".'</ban_list>';
 			};
 			
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 			
 			$rootElement =& $xmlDoc->documentElement;
@@ -539,7 +539,7 @@
 			
 			$textData = trim(implode($buffer));
 						
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 			
 			//get all ip address list
@@ -556,7 +556,7 @@
 			
 			//rebuild, excluding the deleted ip address
 			$textData = '<?xml version="1.0"?>'."\n".'<ban_list>'."\n".'</ban_list>';
-			$xmlDoc2 =& new DOMIT_Lite_Document();
+			$xmlDoc2 = new DOMIT_Lite_Document();
 			$xmlDoc2->parseXML($textData,false);
 			
 			$rootElement2 =& $xmlDoc2->documentElement;
@@ -606,7 +606,7 @@
 			
 			$textData = trim(implode($buffer));
 						
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 			
 			//get all nickname list
@@ -623,7 +623,7 @@
 			
 			//rebuild, excluding the deleted ip address
 			$textData = '<?xml version="1.0"?>'."\n".'<ban_list>'."\n".'</ban_list>';
-			$xmlDoc2 =& new DOMIT_Lite_Document();
+			$xmlDoc2 = new DOMIT_Lite_Document();
 			$xmlDoc2->parseXML($textData,false);
 			
 			$rootElement2 =& $xmlDoc2->documentElement;
@@ -673,7 +673,7 @@
 			
 			if(!empty($textData)){
 				
-				$xmlDoc =& new DOMIT_Lite_Document();
+				$xmlDoc = new DOMIT_Lite_Document();
 				$xmlDoc->parseXML($textData,false);
 
 				$firstChild =& $xmlDoc->getElementsByPath('/smiletag_message/row/datetime',1);			
@@ -704,7 +704,7 @@
 			
 			if(!empty($textData)){
 				
-				$xmlDoc =& new DOMIT_Lite_Document();
+				$xmlDoc = new DOMIT_Lite_Document();
 				$xmlDoc->parseXML($textData,false);
 								
 				//gets ipaddress list
@@ -769,7 +769,7 @@
 				$textData = '<?xml version="1.0"?>'."\n".'<smiley_config>'."\n".'</smiley_config>';
 			};
 			
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 												
 			$rootElement =& $xmlDoc->documentElement;
@@ -818,7 +818,7 @@
 			
 			$textData = '<?xml version="1.0"?>'."\n".'<smiley_config>'."\n".'</smiley_config>';
 						
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 												
 			$rootElement =& $xmlDoc->documentElement;
@@ -884,7 +884,7 @@
 				$textData = '<?xml version="1.0"?>'."\n".'<badword_config><replacement>*beep*</replacement>'."\n".'</badword_config>';
 			};
 			
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 												
 			$rootElement =& $xmlDoc->documentElement;
@@ -934,7 +934,7 @@
 			
 			$textData = trim(implode($buffer));
 						
-			$xmlDoc =& new DOMIT_Lite_Document();
+			$xmlDoc = new DOMIT_Lite_Document();
 			$xmlDoc->parseXML($textData,false);
 												
 			$rootElement =& $xmlDoc->documentElement;
@@ -944,7 +944,7 @@
 			//rebuild		
 			$textData = '<?xml version="1.0"?>'."\n".'<badword_config>'."\n".'</badword_config>';
 						
-			$xmlDoc2 =& new DOMIT_Lite_Document();
+			$xmlDoc2 = new DOMIT_Lite_Document();
 			$xmlDoc2->parseXML($textData,false);
 			
 			$rootElement2 =& $xmlDoc2->documentElement;

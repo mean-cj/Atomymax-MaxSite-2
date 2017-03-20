@@ -101,9 +101,9 @@
 			$this->storageType = $type;
 			
 			if(strtolower($type) == 'file'){
-				$this->dao =& new St_FileDao();
+				$this->dao = new St_FileDao();
 			}elseif(strtolower($type) == 'mysql'){
-				$this->dao =& new St_MysqlDao();
+				$this->dao = new St_MysqlDao();
 			}
 		}
 		

@@ -51,7 +51,7 @@
 			//load configuration in path-config.xml.php
 			define('CONFIG_DIR', (dirname(__FILE__) . "/../config/"));
 			
-			$this->configParser =& new St_XmlParser();
+			$this->configParser = new St_XmlParser();
 			$this->pathConfig = $this->configParser->parseMainConfigToArray(CONFIG_DIR.'path-config.xml');
 			
 			//load configuration in smiletag-config.xml.php

@@ -11,7 +11,7 @@
 //	echo "<p align=\"center\"><center><a name=\"scroller\"></a><MARQUEE direction=\"up\" height=\"180\" width=\"180\" scrollamount=\"2\" scrolldelay=\"0\" onmouseover=this.stop() onmouseout=this.start()>";
 //echo "<table cellspacing=\"0\" cellpadding=\"0\"  width=\"150\"><tr >";
 
-	$viewManager =& new St_ViewManager();
+	$viewManager = new St_ViewManager();
 	$viewManager->display();
 	
 //echo "</MARQUEE></p>";

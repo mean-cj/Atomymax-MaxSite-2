@@ -90,7 +90,7 @@
 			//encode all ']' characters, these are reserved chars for CDATA section
 			$newMessage['message'] = str_replace(']','&#93',$newMessage['message']);
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->appendMessage($this->messageFile,$this->maxMessageRotation,$newMessage);
 						
 			return true;
@@ -105,7 +105,7 @@
 		*/
 		function updateMessage($message){
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->updateMessage($this->messageFile,$message);
 						
 			return true;
@@ -120,7 +120,7 @@
 		*/
 		function deleteMessage($messageId){
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->deleteMessage($this->messageFile,$messageId);
 						
 			return true;
@@ -135,7 +135,7 @@
 		*/
 		function deleteIpAddress($ipaddress){
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->deleteIpAddress($this->banFile,$ipaddress);
 						
 			return true;
@@ -151,7 +151,7 @@
 		*/
 		function addSmileyCode($smilieCode,$smilieImage){
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->addSmileyCode($this->smileyFile,$smilieCode,$smilieImage);
 						
 			return true;
@@ -167,7 +167,7 @@
 		*/
 		function addBadword($badword){
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->addBadword($this->badwordFile,$badword);
 						
 			return true;
@@ -182,7 +182,7 @@
 		*/
 		function deleteBadword($badwords){
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->deleteBadword($this->badwordFile,$badwords);
 						
 			return true;
@@ -197,7 +197,7 @@
 		*/
 		function deleteNickName($nickname){
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->deleteNickName($this->banFile,$nickname);
 						
 			return true;
@@ -212,7 +212,7 @@
 		*/
 		function deleteSmileyCode($smileyCode){
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->deleteSmileyCode($this->smileyFile,$smileyCode);
 						
 			return true;
@@ -245,7 +245,7 @@
 		*/
 		function banIpAddress($ipAddress){
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->appendIpAddress($this->banFile,$ipAddress);
 						
 			return true;
@@ -259,7 +259,7 @@
 		*/
 		function banNickName($nickName){
 			
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$xmlParser->appendNickname($this->banFile,$nickName);
 						
 			return true;
@@ -273,7 +273,7 @@
 		* @return array
 		*/
 		function getMessage($size){
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$messageArray = $xmlParser->parseMessagesToArray($this->messageFile);
 			
 			if(is_array($messageArray) && ($size != 0)){
@@ -291,7 +291,7 @@
 		* @return array
 		*/
 		function getMessageById($id){
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 			$messageArray = $xmlParser->parseMessagesToArray($this->messageFile);
 			
 			if(is_array($messageArray)){
@@ -319,7 +319,7 @@
 		* @return string
 		*/
 		function getLatestTimestamp(){
-			$xmlParser =& new St_XmlParser();
+			$xmlParser = new St_XmlParser();
 						
 			return $xmlParser->getFirstChildTimestamp($this->messageFile);
 		}

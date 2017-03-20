@@ -35,10 +35,10 @@
 		
 		function St_PostManager(){
 			//initiate configManager
-			$this->configManager =& new St_ConfigManager();
+			$this->configManager = new St_ConfigManager();
 		
 			//initiate persistenceManager
-			$this->persistenceManager =& new St_PersistenceManager();
+			$this->persistenceManager = new St_PersistenceManager();
 		}
 		
 		/**
@@ -82,7 +82,7 @@
 				}
 			}
 						
-			$ruleProcessor =& new St_RuleProcessor();
+			$ruleProcessor = new St_RuleProcessor();
 			$ruleProcessor->setConfiguration($this->configManager);
 			$ruleProcessor->setData($this->newMessage);
 			
@@ -154,7 +154,7 @@
 			// This block modify input data	
 			
 			//create input processor object
-			$inputProcessor =& new St_InputProcessor();
+			$inputProcessor = new St_InputProcessor();
 			$inputProcessor->setData($this->newMessage);
 			
 			// 1 ----------------------------------------------

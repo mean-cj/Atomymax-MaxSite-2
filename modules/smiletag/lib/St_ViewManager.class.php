@@ -18,7 +18,7 @@
 		var $configManager;
 		
 		function St_ViewManager(){
-			$this->configManager =& new St_ConfigManager();
+			$this->configManager = new St_ConfigManager();
 		}
 		
 		
@@ -32,7 +32,7 @@
 		function display(){
 			
 			//load data from persistence object
-			$persistenceManager =& new St_PersistenceManager();
+			$persistenceManager = new St_PersistenceManager();
 			$storageType 		=  $this->configManager->getStorageType();
 			
 					
@@ -52,7 +52,7 @@
 			
 						
 			//create template parser and assign the array
-			$templateParser =& new St_TemplateParser();
+			$templateParser = new St_TemplateParser();
 			$templateParser->setMessage($messageArray);
 			$templateParser->setTimeZone($this->configManager->getTimeZone());
 			$templateParser->setDateFormat($this->configManager->getDateFormat());
