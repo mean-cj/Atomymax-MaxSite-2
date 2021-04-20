@@ -3,31 +3,31 @@
 <script type="text/javascript" src="js/prototype.js"></script>
 <script type="text/javascript" src="js/scriptaculous.js?load=effects,builder"></script>
 <script type="text/javascript" src="js/lightbox.js"></script>
-<script language="javascript"> 
-<!-- 
-var state = 'none'; 
+<script language="javascript">
+<!--
+var state = 'none';
 
-function showhide(layer_ref) { 
+function showhide(layer_ref) {
 
-if (state == 'block') { 
-state = 'none'; 
-} 
-else { 
-state = 'block'; 
-} 
-if (document.all) { //IS IE 4 or 5 (or 6 beta) 
-eval( "document.all." + layer_ref + ".style.display = state"); 
-} 
-if (document.layers) { //IS NETSCAPE 4 or below 
-document.layers['layer_ref'].display = state; 
-} 
-if (document.getElementById &&!document.all) { 
-hza = document.getElementById(layer_ref); 
-hza.style.display = state; 
-} 
-} 
-//--> 
-</script> 
+if (state == 'block') {
+state = 'none';
+}
+else {
+state = 'block';
+}
+if (document.all) { //IS IE 4 or 5 (or 6 beta)
+eval( "document.all." + layer_ref + ".style.display = state");
+}
+if (document.layers) { //IS NETSCAPE 4 or below
+document.layers['layer_ref'].display = state;
+}
+if (document.getElementById &&!document.all) {
+hza = document.getElementById(layer_ref);
+hza.style.display = state;
+}
+}
+//-->
+</script>
 
 <?
 if ($_GET['s_page']){
@@ -36,7 +36,7 @@ $s_pagex=$_GET['s_page'];
 $s_pagex=0;
 }
 $_GET['id'] = intval($_GET['id']);
-//�֧�����š�з�� 
+//ดึงข้อมูลกระทู้
 $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 $VIEWBOARD = $db->fetch($db->select_query("SELECT * FROM ".TB_WEBBOARD." WHERE id = '".$_GET['id']."' "));
 $db->closedb ();
@@ -53,10 +53,10 @@ CheckWebboard($admin_user, $admin_pwd,$VIEWBOARD['category']);
 } else {
 CheckWebboard('', '',$VIEWBOARD['category']);
 }
-//�ó��������¡�á�з�� 
+//กรณีไม่มีรายการกระทู้
 NotTrueAlert($VIEWBOARD['id'], "3", ""._WEBBOARD_READ_NO_TOPIC."");
 
-	//�ʴ��š�з�� 
+	//แสดงผลกระทู้
 $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 $limit = 9 ;
 $SUMPAGE = $db->num_rows(TB_WEBBOARD_COMMENT,"id","topic_id = '".$_GET['id']."'");
@@ -65,7 +65,7 @@ if (empty($page)){
 	$page=1;
 }
 $rt = $SUMPAGE%$limit ;
-$totalpage = ($rt!=1) ? floor($SUMPAGE/$limit)+1 : floor($SUMPAGE/$limit); 
+$totalpage = ($rt!=1) ? floor($SUMPAGE/$limit)+1 : floor($SUMPAGE/$limit);
 $goto = ($page-1)*$limit ;
 
 if($action == "comment"){
@@ -83,15 +83,15 @@ if($action == "comment"){
 check_captcha($_POST['security_code']);
 	}
 }
-	//��ẹ�ɳ�
+	//เช็คแบนโฆษณา
 	$TOPIC=checkban($_POST['topic']);
 	$DETAIL=banword($_POST['detail']);
 	$POSTNAME=CheckRude($_POST['post_name']);
-	if (substr_count($_POST['detail'],'<p>') == 1) {   
-		$temp = preg_replace("/<p>/i","",$_POST['detail']);   
-		$temp = preg_replace("/<\/p>/i","",$temp);   
-		$_POST['detail'] = $temp; 
-	} 
+	if (substr_count($_POST['detail'],'<p>') == 1) {
+		$temp = preg_replace("/<p>/i","",$_POST['detail']);
+		$temp = preg_replace("/<\/p>/i","",$temp);
+		$_POST['detail'] = $temp;
+	}
 
 	//Check Pic Size
 	$FILE = $_FILES['FILE'];
@@ -121,8 +121,8 @@ check_captcha($_POST['security_code']);
 		exit();
 	}
 	}
-	//�
-	//�ŧ���ʡ�� ��зӡ�� upload
+	//แป
+	//แปลงนามสกุล และทำการ upload
 	if ( $FILE['type'] == "image/gif" )
 			{$Filename = TIMESTAMP.".gif";}
 	else if ( $FILE['type'] == "image/x-png" )
@@ -161,7 +161,7 @@ $db->update_db(TB_MEMBER,array(
 		"ip_address"=>"".$IPADDRESS."",
 		"post_date"=>"".TIMESTAMP."",
 		"att"=>"".TIMESTAMP."_".$FILEATT['name'].""
-	)); 
+	));
 @copy ($FILEATT['tmp_name'] , "webboard_upload/".TIMESTAMP."_".$FILEATT['name']);
 	} else {
 	$db->add_db(TB_WEBBOARD_COMMENT,array(
@@ -172,7 +172,7 @@ $db->update_db(TB_MEMBER,array(
 		"is_member"=>"".$ISMembers."",
 		"ip_address"=>"".$IPADDRESS."",
 		"post_date"=>"".TIMESTAMP."",
-	)); 
+	));
 	}
 		$db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 		$db->update_db(TB_WEBBOARD,array(
@@ -182,7 +182,7 @@ $db->update_db(TB_MEMBER,array(
 	$PostComplete = True ;
 }
 
-//�ӹǹ����Ҫ�
+//จำนวนคนเข้าชม
 $PAGEVIEW = $VIEWBOARD['pageview']+1 ;
 $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 $db->update(TB_WEBBOARD," pageview='$PAGEVIEW' "," id='".$_GET['id']."' ");
@@ -245,7 +245,7 @@ $Comm = $db->select_query("SELECT * FROM ".TB_WEBBOARD_COMMENT." where topic_id=
 		    </tr>
           </table>
 <?
-//�ʴ��š��Post 
+//แสดงผลการPost
 if(!empty($PostComplete)){
 	//Complete
 ?>
@@ -363,7 +363,7 @@ function calRpg($p) {
    $cbase = ($i - ($j - $rpgSettings['incre']));
    if ($l < 1) $l = 1;
    $pc = (($p - $cbase) / ($fn - $cbase)) * 100;
-   return array( 
+   return array(
       'level' => $l,
       'cbase' => $cbase,
       'nbase' => $fn,
@@ -431,15 +431,15 @@ if($admin_user){
 };
 
 				if(CheckLevel($admin_user,"webboard_edit")){
-						echo "&nbsp;&nbsp;<a href='index.php?name=webboard&file=edittopic&id=".$VIEWBOARD['id']."&s_page=".$s_pagex."'><img src='images/edit_f2.png'>"._WEBBOARD_FORM_EDIT_TOPIC_TITILE."</a></font>";						
+						echo "&nbsp;&nbsp;<a href='index.php?name=webboard&file=edittopic&id=".$VIEWBOARD['id']."&s_page=".$s_pagex."'><img src='images/edit_f2.png'>"._WEBBOARD_FORM_EDIT_TOPIC_TITILE."</a></font>";
 					}else{ };				?>&nbsp;&nbsp;
-                          <? //�ó���Ҫԡ
+                          <? //กรณีสมาชิก
 					if($login_true==$VIEWBOARD['post_name']){
-						echo "&nbsp;&nbsp;<a href='index.php?name=webboard&file=edittopic&id=".$VIEWBOARD['id']."&s_page=".$s_pagex."'><img src='images/mail1[1].gif'>"._WEBBOARD_FORM_EDIT_TOPIC_TITILE."</a>";						
+						echo "&nbsp;&nbsp;<a href='index.php?name=webboard&file=edittopic&id=".$VIEWBOARD['id']."&s_page=".$s_pagex."'><img src='images/mail1[1].gif'>"._WEBBOARD_FORM_EDIT_TOPIC_TITILE."</a>";
 					}else{ };
-$headertext = "#ffffff";         // �յ���ѡ����ǹ��Ǣͧ˹�ҵ�ҧ popup
-$headerbackground = "#FFCC00";  // �վ����ǹ��Ǣͧ˹�ҵ�ҧ popup
-$bigbtn = True; // True = ����(������)��Ҵ�˭�, False =  ����(������)��Ҵ���
+$headertext = "#ffffff";         // สีตัวอักษรส่วนหัวของหน้าต่าง popup
+$headerbackground = "#FFCC00";  // สีพื้นส่วนหัวของหน้าต่าง popup
+$bigbtn = True; // True = ปุ่ม(ภาษาไทย)ขนาดใหญ่, False =  ปุ่ม(ภาษาไทย)ขนาดเล็ก
 if ($bigbtn) {
 	$btn="<img src=\"images/lg-share-en.gif\" alt=\""._WEBBOARD_PIC_TOPIC_SHARE_TITLE_ADD."\" height=\"16\" width=\"125\" border=\"0\" />";
 } else {
@@ -475,10 +475,10 @@ if ($bigbtn) {
 						echo $PicUpload ;
 					}else{ };
 
-  if($VIEWBOARD['enable_show']){ 
+  if($VIEWBOARD['enable_show']){
  if(!$login_true && !$admin_user){
   echo "<table cellSpacing=0 cellPadding=0 width='95%' height='24' align='center' ><tr><td bgcolor=#FDEAFD>&nbsp;<img src='images/lock.png' border='0' hspace='4'>&nbsp;<font size='2' color='#333333'>"._WEBBOARD_TOPIC_MEMBER_ONLY."</font></TD></TR></table>" ;}
-else { echo "    ".banword(stripslashes($VIEWBOARD['detail']))."        "; 
+else { echo "    ".banword(stripslashes($VIEWBOARD['detail']))."        ";
 if($VIEWBOARD['att']) {?><br><table cellSpacing=0 cellPadding=0 width='50%' align='center' height='16' ><tr><td align=center valign=center><a href="webboard_upload/<?echo $VIEWBOARD['att'];?>"><img src="images/download.png"><font color="red"></a></td></tr></table><?}
 }
 }
@@ -492,7 +492,7 @@ if($VIEWBOARD['att']) {?><br><table cellSpacing=0 cellPadding=0 width='90%' alig
                   <tr>
                     <td valign="top"><?if($VIEWS['user']==$VIEWBOARD['post_name']){ if($VIEWS['signature'] ){ echo "<img src='images/webboard/sigline.gif' width='363' height='16' /><br>";?> <?=stripslashes($VIEWS['signature']); echo "<br><br>"; }else{} }  ?>
 
-	<div align="right">&nbsp;[ <a href="index.php?name=webboard&file=read&id=<?=$VIEWBOARD[id];?>&actionpost=quote#div1"><?=_WEBBOARD_READ_QOUTE;?></a> ]</div>	
+	<div align="right">&nbsp;[ <a href="index.php?name=webboard&file=read&id=<?=$VIEWBOARD[id];?>&actionpost=quote#div1"><?=_WEBBOARD_READ_QOUTE;?></a> ]</div>
 	<br clear="all" />
 	<div id="voting_result">
 	</div>
@@ -500,7 +500,7 @@ if($VIEWBOARD['att']) {?><br><table cellSpacing=0 cellPadding=0 width='90%' alig
 					</td>
 
                   </tr>
-					
+
 					</td>
 
                   </tr>
@@ -515,33 +515,34 @@ if($VIEWBOARD['att']) {?><br><table cellSpacing=0 cellPadding=0 width='90%' alig
             </table><br>
 
 				<?
-//�֧��¡�ä����Դ���
+//ดึงรายการความคิดเห็น
 $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 $total = $db->num_rows(TB_WEBBOARD_COMMENT,"id"," topic_id=' ".$VIEWBOARD['id']." ' ");
-$e_page=5; 
-if(empty($_GET['s_page'])){   
+$e_page=5;
+if(empty($_GET['s_page'])){
 	$_GET['s_page']=0;
 	$chk_page=$_GET['s_page'];
 	$s_page=$_GET['s_page'];
-}else{   
-	$chk_page=$_GET['s_page'];     
-	$_GET['s_page']=$_GET['s_page']*$e_page;   
+}else{
+	$chk_page=$_GET['s_page'];
+	$_GET['s_page']=$_GET['s_page']*$e_page;
 		$s_page=$_GET['s_page'];
 }
 $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 $qr = $db->select_query("select * from ".TB_WEBBOARD_COMMENT." where topic_id=' ".$VIEWBOARD['id']." ' ORDER BY id  LIMIT ".$_GET['s_page'].",$e_page ");
-$numr=$db->num_rows($qr);
-if($numr >=1){   
-	$plus_p=($chk_page*$e_page)+$numr;   
-}else{   
-	$plus_p=($chk_page*$e_page);       
-}   
-$total_p=ceil($total/$e_page);   
-$before_p=($chk_page*$e_page)+1;  
- 
-$count=0; 
+$numr = $db->num_rows(TB_WEBBOARD_COMMENT,"id"," where topic_id=' ".$VIEWBOARD['id']." ' ORDER BY id  LIMIT ".$_GET['s_page'].",$e_page");
+
+if($numr >=1){
+	$plus_p=($chk_page*$e_page)+$numr;
+}else{
+	$plus_p=($chk_page*$e_page);
+}
+$total_p=ceil($total/$e_page);
+$before_p=($chk_page*$e_page)+1;
+
+$count=0;
 while($arr['comment'] = $db->fetch($qr)){
-$count++; 
+$count++;
 ?>
 <table border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
 <tr>
@@ -739,26 +740,26 @@ if($arr['comment']['picture']){
 										<div align="right">[ <a href="index.php?name=webboard&file=read&id=<?=$VIEWBOARD[id];?>&mentid=<?=$arr[comment][id];?>&actionpost=quote&commentpost=quote2#reply"><?=_WEBBOARD_READ_QOUTE;?></a> ]	</div>
 					</td>
                   </tr>
-			
+
 			  			  <tr>
 				<td height="1" class="dotline"></td>
 			</tr>
               <tr>
                 <td height="24"><table width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td width="250" align="left"><? //���Է������ comment
+                    <td width="250" align="left"><? //เช็คสิทธิ์แก้ไข comment
 				if(CheckLevel($admin_user,"webboard_edit")){
-						echo "<a href='index.php?name=webboard&file=editcomment&id=".$arr['comment']['id']."&s_page=".$s_pagex."'>&nbsp;<img src='images/edit_f2.png'>[&nbsp;"._WEBBOARD_FORM_EDIT_COMMENT_TITILE."&nbsp;]</a>&nbsp;</font>";						
+						echo "<a href='index.php?name=webboard&file=editcomment&id=".$arr['comment']['id']."&s_page=".$s_pagex."'>&nbsp;<img src='images/edit_f2.png'>[&nbsp;"._WEBBOARD_FORM_EDIT_COMMENT_TITILE."&nbsp;]</a>&nbsp;</font>";
 					}else{ };
-				?>&nbsp;&nbsp;<? //���Է������ comment
+				?>&nbsp;&nbsp;<? //เช็คสิทธิ์แก้ไข comment
 				if($arr['comment']['att']){
-						echo "<a href='".WEB_URL."/webboard_upload/".$arr['comment']['att']."'>&nbsp;<img src='images/download.png'></a></font>";						
+						echo "<a href='".WEB_URL."/webboard_upload/".$arr['comment']['att']."'>&nbsp;<img src='images/download.png'></a></font>";
 					}else{ };
 				?></td>
                     <td>&nbsp;</td>
                     <td width="80">&nbsp;</td>
                     <td width="80" align="center"><?	if($login_true==$arr['comment']['post_name']){
-						echo "<a href='index.php?name=webboard&file=editcomment&id=".$arr['comment']['id']."&s_page=".$s_pagex."'>"._WEBBOARD_FORM_EDIT_TOPIC_TITILE."</a>";						
+						echo "<a href='index.php?name=webboard&file=editcomment&id=".$arr['comment']['id']."&s_page=".$s_pagex."'>"._WEBBOARD_FORM_EDIT_TOPIC_TITILE."</a>";
 					}else{ };				?></td>
                     <td width="76" align="center"><a href="#top" alt="<?=_WEBBOARD_READ_OPTOP;?>"><img src="images/top.png"></a></td>
                   </tr>
@@ -806,12 +807,12 @@ $db->closedb ();
 	<TD><INPUT TYPE="text" NAME="topic" style="width:450"  class="inputform" value="<?=$VIEWBOARD['topic'];?>" readonly style="color: #FF0000"></TD>
 </TR>
 <?
-//�ó� ���ٻ�� 
+//กรณี โพสรูปได้
 if(_ENABLE_BOARD_UPLOAD){
 ?>
 <TR>
 	<TD width=150 align=right><B><?=_WEBBOARD_FORM_ATT_PIC_TITLE;?> : </B></TD>
-	<TD><input type="file" name="FILE" style="width:350" class="inputform"> 
+	<TD><input type="file" name="FILE" style="width:350" class="inputform">
 	<?=_WEBBOARD_FORM_LIMIT_SIZE;?> <?=(_WEBBOARD_LIMIT_UPLOAD/1024);?> kB</TD>
 </TR>
 <?
@@ -896,9 +897,9 @@ if(USE_CAPCHA){
 ?>
 						<TR>
 							<TD width=150 align=right>
-							<?if(CAPCHA_TYPE == 1){ 
+							<?if(CAPCHA_TYPE == 1){
 								echo "<img src=\"capcha/CaptchaSecurityImages.php?width=".CAPCHA_WIDTH."&height=".CAPCHA_HEIGHT."&characters=".CAPCHA_NUM."\" width=\"".CAPCHA_WIDTH."\" height=\"".CAPCHA_HEIGHT."\" align=\"absmiddle\" />";
-							}else if(CAPCHA_TYPE == 2){ 
+							}else if(CAPCHA_TYPE == 2){
 								echo "<img src=\"capcha/val_img.php?width=".CAPCHA_WIDTH."&height=".CAPCHA_HEIGHT."&characters=".CAPCHA_NUM."\" width=\"".CAPCHA_WIDTH."\" height=\"".CAPCHA_HEIGHT."\" align=\"absmiddle\" />";
 							};?>							</TD>
 							<TD><input name="security_code" type="text" id="security_code" size="20" maxlength="6" style="width:80" > <?=_JAVA_CAPTCHA_ADD;?></TD>
