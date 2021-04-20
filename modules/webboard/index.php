@@ -29,7 +29,7 @@ $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 $res['BoardCat'] = $db->select_query("SELECT * FROM ".TB_WEBBOARD_CAT." ORDER BY sort ");
 $count=0;
 while($arr['BoardCat'] = $db->fetch($res['BoardCat'])){
-if($count%2==0) { //��ǹ�ͧ��� ��Ѻ�� 
+if($count%2==0) { //ส่วนของการ สลับสี 
 $ColorFill = 'class="odd"';
 } else {
 $ColorFill = ' onmouseover="this.style.backgroundColor=\'#FFF0DF\'" onmouseout="this.style.backgroundColor=\'#ffffff\'"  ';
@@ -66,7 +66,7 @@ if(!empty($category)){
 	$SQLwhere = " pin_date='' AND category='".$category."' ";
 	$SQLwhere2 = " WHERE pin_date='' AND category='".$category."' ";
 	$SQLwherePin = " WHERE pin_date!='' AND category='".$category."' ";
-	//������Ǵ���� 
+	//ชื่อหมวดหมู่ 
 	$res['category'] = $db->select_query("SELECT category_name FROM ".TB_WEBBOARD_CAT." WHERE id='".$category."' "); 
 	$arr['category'] = $db->fetch($res['category']);
 	$CatShow = $arr['category']['category_name'];
@@ -98,7 +98,7 @@ if(!empty($category)){
             </tr>
             <?
 
-//�ʴ���з��ѡ��ش
+//แสดงกระทู้ปักหมุด
 $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 $res['Pin'] = $db->select_query("SELECT * FROM ".TB_WEBBOARD." $SQLwherePin ORDER BY pin_date DESC  ");
 while($arr['Pin'] = $db->fetch($res['Pin'])){
@@ -118,7 +118,7 @@ while($arr['Pin'] = $db->fetch($res['Pin'])){
 	if($arr['Pin']['pageview']>45){ echo"<img src='images/icon/topichot.gif' border='0' hspace='5' ALIGN=\"absmiddle\">";}else{echo"<IMG SRC=\"images/icon/dock.gif\" BORDER=\"0\"  hspace='5' ALIGN=\"absmiddle\">";}
 echo "<B>".sprintf("%0"._NUM_ID."d",$arr['Pin']['id'])." : </B></td><td> <A HREF=\"?name=webboard&file=read&id=".$arr['Pin']['id']."\" target=\"_blank\">".$arr['Pin']['topic']."</A> ".$PicIcon."&nbsp;".$AttIcon."";
 
-	//�óա�з������ 
+	//กรณีกระทู้ใหม่ 
 	$Comm = $db->select_query("SELECT * FROM ".TB_WEBBOARD_COMMENT." where topic_id='".$arr['Pin']['id']."' ORDER BY id DESC ");
 	$Comms = $db->fetch($Comm);
 	if($Comms['id']){
@@ -127,7 +127,7 @@ echo "<B>".sprintf("%0"._NUM_ID."d",$arr['Pin']['id'])." : </B></td><td> <A HREF
 	NewsIcon(TIMESTAMP, $arr['Pin']['post_date'], "images/icon_new.gif");
 	 };
 	echo "<FONT FACE=\"tahoma\" COLOR=\"#808080\">(".number_format($arr['Pin']['pageview'])."/".number_format($SumComm).")</FONT></td>\n";
-	//�ó���Ҫԡ
+	//กรณีสมาชิก
 
 
 	echo "<td  width=\"19%\"><CENTER>";
@@ -137,7 +137,7 @@ echo "<B>".sprintf("%0"._NUM_ID."d",$arr['Pin']['id'])." : </B></td><td> <A HREF
 	}else{	echo "<B><FONT COLOR=\"#6600FF\">".$arr['Pin']['post_name']."</FONT></B>&nbsp;"; };
 	echo"<br><font size='1'>"._WEBBOARD_DETAIL_POST." ".ThaiTimeConvert($arr['Pin']['post_date'],"","2")."</font></CENTER></td>\n";
 	echo "<td  width='5%' align='center'><FONT FACE=\"tahoma\" COLOR=\"#0099FF\">".number_format($arr['Pin']['pageview'])."</FONT></td>	<td  width='5%' align='center'><FONT FACE=\"tahoma\" COLOR=\"#808080\">".number_format($SumComm)."</FONT></td>\n";
-		// �ʴ����ͺ����ش     
+		// แสดงคนตอบล่าสุด     
 echo "<td  width=\"19%\">";
 $res['ments'] = $db->select_query("SELECT * FROM ".TB_WEBBOARD_COMMENT." WHERE topic_id=".$arr['Pin']['id']." ORDER BY id DESC LIMIT 1 ");
 $arr['ments'] = $db->fetch($res['ments']);
@@ -148,7 +148,7 @@ if ($arr['ments']['topic_id']){
 }
 
 }
-//�ʴ��š�з�� 
+//แสดงผลกระทู้ 
 
 $db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 //$total = $db->num_rows(TB_WEBBOARD_COMMENT,"id"," topic_id=' ".$VIEWBOARD['id']." ' ");
@@ -167,7 +167,7 @@ if(empty($_GET['s_page'])){
 
 $count=0;
 $qr = $db->select_query("SELECT * FROM ".TB_WEBBOARD." $SQLwhere2 ORDER BY post_update DESC  LIMIT ".$_GET['s_page'].",$e_page ");
-$numr=$db->num_rows($qr);
+$numr=$db->num_rows(TB_WEBBOARD,'id'," $SQLwhere2 ORDER BY post_update DESC  LIMIT ".$_GET['s_page'].",$e_page ");
 if($numr >=1){   
 	$plus_p=($chk_page*$e_page)+$numr;   
 }else{   
@@ -177,7 +177,7 @@ $total_p=ceil($total/$e_page);
 $before_p=($chk_page*$e_page)+1;  
 
 while($WebBoard = $db->fetch($qr)){
-if($count%2==0) { //��ǹ�ͧ��� ��Ѻ�� 
+if($count%2==0) { //ส่วนของการ สลับสี 
 $ColorFill = ' onmouseover="this.style.backgroundColor=\'#FFF0DF\'" onmouseout="this.style.backgroundColor=\'#ffffff\'"  ';
 } else {
 $ColorFill = 'class="odd"';
@@ -198,7 +198,7 @@ $ColorFill = 'class="odd"';
 		if($WebBoard['pageview']>45){ echo"<img src='images/icon/topichot.gif' border='0' hspace='5' ALIGN=\"absmiddle\">";}else{echo"<IMG SRC=\"images/btn_paper.jpg\" BORDER=\"0\"  hspace='5' ALIGN=\"absmiddle\">";}
 		echo "".sprintf("%0"._NUM_ID."d",$WebBoard['id'])." </td><td > <A HREF=\"?name=webboard&file=read&id=".$WebBoard['id']."\" > <font  color='#333333'>".$WebBoard['topic']."</font></A> ".$PicIcon."&nbsp;".$AttIcon."";	
 
-	//�óա�з������ 
+	//กรณีกระทู้ใหม่ 
 	$db->connectdb(DB_NAME,DB_USERNAME,DB_PASSWORD);
 	$Comm = $db->select_query("SELECT * FROM ".TB_WEBBOARD_COMMENT." where topic_id='".$WebBoard['id']."' ORDER BY id DESC  LIMIT $limit ");
 	$Comms = $db->fetch($Comm);
@@ -216,7 +216,7 @@ $ColorFill = 'class="odd"';
 	echo "<br><font size='1'>"._WEBBOARD_DETAIL_POST." ".ThaiTimeConvert($WebBoard['post_date'],"","2")."</font></CENTER></td>\n";
 	echo "<td width='5%' align='center'><FONT FACE=\"tahoma\" COLOR=\"#0099FF\">".number_format($WebBoard['pageview'])."</FONT></td>
 	<td  width='5%' align='center'><FONT FACE=\"tahoma\" COLOR=\"#808080\">".number_format($SumComm)."</FONT></td>\n";
-		// �ʴ����ͺ����ش     
+		// แสดงคนตอบล่าสุด     
 $res['ment'] = $db->select_query("SELECT * FROM ".TB_WEBBOARD_COMMENT." WHERE topic_id=".$WebBoard['id']." ORDER BY id DESC LIMIT 1 ");
 $arr['ment']= $db->fetch($res['ment']);
 	if ($arr['ment']['post_name']){
